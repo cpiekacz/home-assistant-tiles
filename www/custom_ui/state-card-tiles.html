@@ -24,7 +24,7 @@
     <paper-button-group class="grid" on-tap="stopPropagation">
       <template is="dom-repeat" items="[[config.entities]]" as="entity">
         <paper-button raised class$="[[computeTileClass(hass, entity)]]" style$="[[computeTileStyle(entity)]]"
-        on-tap="callService" >
+                      on-mousedown="pressButton" on-mouseup="releaseButton">
           <template is="dom-if" if="[[entity.icon]]">
             <iron-icon icon="[[entity.icon]]"></iron-icon>
           </template>
@@ -36,7 +36,7 @@
 </dom-module>
 <script>
   const VERSION = '2017113';
-  var timeout = 0;
+  var clickedEntity = false;
 
   Polymer({
     is: 'state-card-tiles',
@@ -58,6 +58,7 @@
     },
 
     ready: function () {
+      //alert('ontouchstart' in window);
       var config = this.config;
       this.updateStyles({
         '--tiles-columns': config.columns ? config.columns : '3',
@@ -87,16 +88,33 @@
     },
 
     callService: function (e) {
-      var entity = e.model.entity.entity;
+      var entity = e.entity;
       var domain = entity.split('.')[0];
       if (domain === 'script') {
         var service = entity.split('.')[1];
-        var data = e.model.entity.data ? (e.model.entity.data) : {};
+        var data = e.data ? (e.data) : {};
       } else {
         var service = 'toggle';
         var data = { 'entity_id': entity };
       }       
       this.hass.callService(domain, service, data);
+    },
+
+    fireMoreInfo: function (e) {
+      if (!clickedEntity) return;
+      this.fire('hass-more-info', { entityId: clickedEntity.entity });
+      clickedEntity = false;
+    },
+
+    pressButton: function (e) {
+      clickedEntity = e.model.entity;
+      this.async(this.fireMoreInfo, 1000);
+    },
+
+    releaseButton: function (e) {
+      if (!clickedEntity) return; 
+      this.callService(clickedEntity);
+      clickedEntity = false;
     },
 
     stopPropagation: function (e) {
