@@ -9,6 +9,8 @@
 frontend:
   extra_html_url:
     - /local/custom_ui/state-card-tiles.html
+  extra_html_url_es5:
+    - /local/custom_ui/state-card-tiles.html
 ```
 
 ## Configuration
