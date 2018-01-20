@@ -109,21 +109,21 @@ class StateCardTiles extends Polymer.Element {
   }
 
   callService(ev) {
-      var entity = ev.model.entity.entity;
-      var domain = entity.split('.')[0];
-      if (domain === 'script') {
-        var service = entity.split('.')[1];
-        var data = ev.model.entity.data ? (ev.model.entity.data) : {};
-      } else {
-        var service = 'toggle';
-        var data = { entity_id: entity };
-      }       
-      this.hass.callService(domain, service, data);
-    }
+    var entity = ev.model.entity.entity;
+    var domain = entity.split('.')[0];
+    if (domain === 'script') {
+      var service = entity.split('.')[1];
+      var data = ev.model.entity.data ? (ev.model.entity.data) : {};
+    } else {
+      var service = 'toggle';
+      var data = { entity_id: entity };
+    }       
+    this.hass.callService(domain, service, data);
+  }
 
-    stopPropagation(ev) {
-      ev.stopPropagation();
-    }
+  stopPropagation(ev) {
+    ev.stopPropagation();
+  }
 }
 customElements.define(StateCardTiles.is, StateCardTiles);
 </script>
