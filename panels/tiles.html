@@ -11,7 +11,7 @@
     </style>
     <state-card-tiles
       hass='[[hass]]'  
-      state-obj='[[dataTiles]]'
+      state-obj='[[computeDataTiles(panel)]]'
     ></state-card-tiles>
   </template>
 </dom-module>
@@ -23,20 +23,8 @@
       hass: {
         type: Object,
       },
-      narrow: {
-        type: Boolean,
-        value: false,
-      },
-      showMenu: {
-        type: Boolean,
-        value: false,
-      },
       panel: {
         type: Object,
-      },
-      dataTiles: {
-        type: Object,
-        computed: 'computeDataTiles(panel)',
       }
     },
 
