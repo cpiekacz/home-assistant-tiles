@@ -51,7 +51,20 @@ homeassistant:
  
  Also check the sample configuration.
 
- ## Changelog
+## Run as panel
+```
+panel_custom:
+  - name: tiles
+    sidebar_title: Tiles
+    sidebar_icon: mdi:view-dashboard
+    url_path: tiles
+    config:
+      entities:
+        - entity: input_boolean.switch1
+          label: Switch 1
+```
+
+## Changelog
 Version 20180120:
 ```
 -added ES5 and ES6 version

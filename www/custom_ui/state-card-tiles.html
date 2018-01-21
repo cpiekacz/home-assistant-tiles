@@ -1,11 +1,11 @@
 <!--
 https://github.com/c727/home-assistant-tiles
-version: 20180120
+version: 20180121
 -->
 <dom-module id='state-card-tiles'>
   <template>
     <style>
-      .grid {
+      paper-button-group {
         display: grid;
         grid-template-columns: repeat(var(--tiles-columns), var(--tiles-column-width));
         grid-auto-rows: var(--tiles-row-height);
@@ -29,7 +29,7 @@ version: 20180120
         color: var(--tiles-text-color-off);
       }
     </style>
-    <paper-button-group class='grid' on-tap='stopPropagation'>
+    <paper-button-group on-tap='stopPropagation'>
       <template is='dom-repeat' items='[[config.entities]]' as='entity'>
         <paper-button raised class$='[[computeClass(hass, entity)]]' style$='[[computeStyle(entity)]]' on-tap='callService'>
           <template is='dom-if' if='[[entity.icon]]'>

@@ -1,0 +1,47 @@
+<dom-module id='ha-panel-tiles'>
+  <template>
+    <style>
+      :host {
+        background-color: black;
+        display: block;
+        width: 100%;
+        height: 100%;
+        padding: 8px;
+      }
+    </style>
+    <state-card-tiles
+      hass='[[hass]]'  
+      state-obj='[[dataTiles]]'
+    ></state-card-tiles>
+  </template>
+</dom-module>
+  
+<script>
+  Polymer({
+    is: 'ha-panel-tiles',
+    properties: {
+      hass: {
+        type: Object,
+      },
+      narrow: {
+        type: Boolean,
+        value: false,
+      },
+      showMenu: {
+        type: Boolean,
+        value: false,
+      },
+      panel: {
+        type: Object,
+      },
+      dataTiles: {
+        type: Object,
+        computed: 'computeDataTiles(panel)',
+      }
+    },
+
+    computeDataTiles: function(panel) {
+      return panel && panel.config ? { attributes: { config: panel.config } } : {};
+    },
+  });
+</script>
