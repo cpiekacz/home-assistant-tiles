@@ -2,6 +2,9 @@
 
 ![preview](https://raw.githubusercontent.com/c727/home-assistant-tiles/master/docs/preview.png)
 
+## Requirements
+[Modern web browser](https://caniuse.com/#feat=css-grid)
+
 ## Installation
 * Download `/www/custom_ui/state-card-tiles.html` and `/www/custom_ui/state-card-tiles_es5.html` to `<config-dir>/www/custom_ui/`
 * Add it to your `configuration.yaml`:
