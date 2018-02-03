@@ -1,6 +1,6 @@
 <!--
 https://github.com/c727/home-assistant-tiles
-version: 20180121
+version: 20180204
 -->
 <dom-module id='state-card-tiles'>
   <template>
@@ -89,7 +89,7 @@ version: 20180121
 
     computeClass: function (hass, entity) {
       var domain = entity.entity.split('.')[0];
-      if (domain === 'script') return '';
+      if (domain === 'script' || domain === 'python_script') return '';
       return (hass.states[entity.entity].state === 'on') ? 'on' : 'off';
     },
 
@@ -111,7 +111,7 @@ version: 20180121
     callService: function (ev) {
       var entity = ev.model.entity.entity;
       var domain = entity.split('.')[0];
-      if (domain === 'script') {
+      if (domain === 'script' || domain === 'python_script') {
         var service = entity.split('.')[1];
         var data = ev.model.entity.data ? (ev.model.entity.data) : {};
       } else {
