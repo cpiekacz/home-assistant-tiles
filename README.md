@@ -68,6 +68,10 @@ panel_custom:
 ```
 
 ## Changelog
+Version 20180204:
+```
+add support for python scripts
+```
 Version 20180120:
 ```
 -added ES5 and ES6 version
