@@ -68,7 +68,7 @@ panel_custom:
 ```
 
 ## Changelog
-Version 20180204:
+Version 20180209:
 ```
 -added support for "all" domains
 ```
