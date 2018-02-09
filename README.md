@@ -68,6 +68,10 @@ panel_custom:
 ```
 
 ## Changelog
+Version 20180209.1
+```
+-changed minimum button size to 50px x 50 px
+```
 Version 20180209:
 ```
 -added support for "all" domains

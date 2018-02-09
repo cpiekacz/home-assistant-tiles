@@ -1,6 +1,6 @@
 <!--
 https://github.com/c727/home-assistant-tiles
-version: 20180209
+version: 20180209.1
 -->
 <dom-module id='state-card-tiles'>
   <template>
@@ -15,6 +15,8 @@ version: 20180209
       paper-button {          
         box-shadow: none !important;
         margin: 0 !important;
+        min-width: 50px;
+        min-height: 50px;
         background-color: var(--tiles-color);
         color: var(--tiles-text-color);
         background-repeat: no-repeat;
@@ -118,7 +120,7 @@ version: 20180209
       if (stateDomain === 'script' || stateDomain === 'python_script') {
         serviceDomain = stateDomain;
         service = entity.split('.')[1];
-        data = ev.model.entity.data ? (ev.model.entity.data) : {};
+        data = ev.model.entity.data ? ev.model.entity.data : {};
       } else {
         if (stateDomain === 'lock') {
           serviceDomain = 'lock';
