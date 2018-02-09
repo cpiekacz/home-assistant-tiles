@@ -70,15 +70,11 @@ panel_custom:
 ## Changelog
 Version 20180204:
 ```
-<<<<<<< HEAD
 -added support for "all" domains
 ```
 Version 20180204:
 ```
 -added support for python scripts
-=======
-add support for python scripts
->>>>>>> 19e05f149d0897884bac2d428ed264ce7e2efe84
 ```
 Version 20180120:
 ```
