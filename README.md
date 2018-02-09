@@ -23,39 +23,39 @@ homeassistant:
     input_text.dummy_tiles:
       custom_ui_state_card: state-card-tiles
       config:
-        columns: 3            # optional
-        column_width: 75px    # optional
-        row_height: 75px      # optional
-        gap: 4px              # optional
-        color: blue           # optional
-        color_on: green       # optional
-        color_off: red        # optional
-        text_color: #FFF      # optional
-        text_color_on: #FFF   # optional
-        text_color_off: #FFF  # optional
+        columns: 3              # optional
+        column_width: 75px      # optional
+        row_height: 75px        # optional
+        gap: 4px                # optional
+        color: blue             # optional
+        color_on: green         # optional
+        color_off: red          # optional
+        text_color: '#FFF'      # optional
+        text_color_on: '#FFF'   # optional
+        text_color_off: '#FFF'  # optional
         entities:
           - entity: script.test
-            label: S1              # optional
+            label: S1                # optional
             label_state: input_boolean.switch2  # optional
-            icon: mdi:power        # optional
-            image: /local/test.png # optional
-            data: {value: right}   # optional
-            column: 2              # optional
-            column_span: 2         # optional
-            row: 2                 # optional
-            row_span: 2            # optional
-            color: blue            # optional
-            color_on: green        # optional
-            color_off: red         # optional
-            text_color: #FFF       # optional
-            text_color_on: #FFF    # optional
-            text_color_off: #FFF   # optional
+            icon: mdi:power          # optional
+            image: /local/test.png   # optional
+            data: {value: right}     # optional
+            column: 2                # optional
+            column_span: 2           # optional
+            row: 2                   # optional
+            row_span: 2              # optional
+            color: blue              # optional
+            color_on: green          # optional
+            color_off: red           # optional
+            text_color: '#FFF'       # optional
+            text_color_on: '#FFF'    # optional
+            text_color_off: '#FFF'   # optional
  ```
  
  Also check the sample configuration.
 
 ## Run as panel
-```
+```yaml
 panel_custom:
   - name: tiles
     sidebar_title: Tiles
@@ -70,7 +70,15 @@ panel_custom:
 ## Changelog
 Version 20180204:
 ```
+<<<<<<< HEAD
+-added support for "all" domains
+```
+Version 20180204:
+```
+-added support for python scripts
+=======
 add support for python scripts
+>>>>>>> 19e05f149d0897884bac2d428ed264ce7e2efe84
 ```
 Version 20180120:
 ```
